@@ -1,5 +1,7 @@
 import React from 'react'
-import { View, Image, StyleSheet } from 'react-native';
+import { Image } from 'react-native';
+import pipe1 from "./assets/pipe1.png"
+
 
  
 const Barriers = ({barrierWight, barrierHeight, barriersLeft, gap, color, randomButton }) => {   
@@ -8,7 +10,7 @@ const Barriers = ({barrierWight, barrierHeight, barriersLeft, gap, color, random
 return (
     <>
         
-        <View style={{
+        <Image style={{
             
                     position: 'absolute',
                     backgroundColor: color,
@@ -16,18 +18,20 @@ return (
                     height: barrierHeight,
                     left: barriersLeft,
                     bottom: randomButton + barrierHeight + gap,
-                }}/>
+                    borderRadius: 10,
+                }}  source={pipe1} />   
         
           
 
-        <View style={{
+        <Image style={{
                     position: 'absolute',
                     backgroundColor: color,
                     width: barrierWight,
                     height: barrierHeight,
                     left: barriersLeft,
                     bottom: randomButton,
-                }}/>       
+                    borderRadius: 10,
+                }} source={pipe1} />      
          
     </>
 )} 
