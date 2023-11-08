@@ -1,6 +1,7 @@
 import React from 'react'
 import { Image } from 'react-native';
-import pipe1 from "./assets/pipe1.png"
+import pipe1 from "./assets/pipe1.png";
+import pipe2 from "./assets/pipe2.png";
 
 
  
@@ -13,25 +14,24 @@ return (
         <Image style={{
             
                     position: 'absolute',
-                    backgroundColor: color,
                     width: barrierWight,
                     height: barrierHeight,
                     left: barriersLeft,
                     bottom: randomButton + barrierHeight + gap,
-                    borderRadius: 10,
-                }}  source={pipe1} />   
+                }}  source={pipe2} 
+                    resizeMode="cover"
+                />   
         
           
 
         <Image style={{
                     position: 'absolute',
-                    backgroundColor: color,
                     width: barrierWight,
                     height: barrierHeight,
                     left: barriersLeft,
                     bottom: randomButton,
-                    borderRadius: 10,
-                }} source={pipe1} />      
+                }}  source={pipe1}
+                    resizeMode="cover" />                  
          
     </>
 )} 
