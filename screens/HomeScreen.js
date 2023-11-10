@@ -27,9 +27,10 @@ import {
       <Pressable 
           style={styles.BlackButton} 
           onPress = {() => navigation.navigate("Flappy")}>
-        <Text style={styles.ButtonText}>Flappy</Text>
+        <Text style={styles.ButtonText}>Flappy Game</Text>
       </Pressable> 
       <Pressable 
+      //working on it 
           style={styles.PepsiButton} 
           onPress = {() => navigation.navigate("PepsiApp")}>
         <Text style={styles.PepsiButtonText}>PepsiApp </Text>

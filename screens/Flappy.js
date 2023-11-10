@@ -8,16 +8,18 @@ import {
       StatusBar, 
     } from 'react-native';
     import Background from "../assets/background.png"
+    import player from "../assets/player.png"
   
     
     const  Flappy = ({navigation}) => {
     
        
       return (
-        <View style={styles.container}>  
-        <ImageBackground style={styles.container} source={Background} >      
+        <View style={styles.container}>
+        <ImageBackground style={styles.container} source={Background} > 
+        <Text style={styles.subtitleText}>Flappy Game</Text>      
         <View> 
-        <Text style={styles.subtitleText}>Flappy</Text> 
+        <Image style={{ height:150, width: 200, marginLeft: "25%", marginBottom:20 }} source={player} />
         </View> 
         <View style={{marginLeft: "25%"}}>   
         <Pressable 
@@ -46,8 +48,8 @@ import {
         },
 
       playerIcon: {
-          height:20,
-          width: 20
+          height:150,
+          width: 200,
       },  
   
       titleText: {
@@ -77,7 +79,7 @@ import {
           borderRadius: 10,   
           borderColor: "black", 
           marginBottom: 20, 
-          marginLeft: "10%"   
+          marginLeft: "10%",  
       }, 
 
       BlackButton: { 

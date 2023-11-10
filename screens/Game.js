@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, Dimensions, TouchableWithoutFeedback, ImageBackground,  } from 'react-native';
+import { View, Text, StyleSheet, Dimensions, TouchableWithoutFeedback, Image, } from 'react-native';
 import  Player  from "../Player";
 import Barriers from "../Barriers";
-//import Background from "../assets/background.png"
+import background from "../assets/background.png"
+import { StatusBar } from 'expo-status-bar';
+
 
 export default function Game() {
 
@@ -16,13 +18,14 @@ export default function Game() {
     const [obstaclesNegHeight, setObstaclesNegHeight] = useState(0)
     const [obstaclesNegHeightTwo, setObstaclesNegHeightTwo] = useState(0) 
     const gravity = 3
-    const barrierWight = 60  
-    const barrierHeight = 300
+    const barrierWight = 65  
+    const barrierHeight = 400
     const gap = 200 
     const [IsGameOver, setIsGameOver  ] = useState(false)   
     let gameTimerID 
     let barriersLeftTimerId
     let barriersLeftTimerIdTwo
+    
 
     
     
@@ -94,13 +97,11 @@ export default function Game() {
             playersBottom > (obstaclesNegHeightTwo + barrierHeight + gap - 30 )) &&
             (barriersLeftTwo > screenWidth/2 - 30 && barriersLeftTwo < screenWidth/2 + 30 ) 
             ) 
-            )   
-        
+            )        
             {
                 console.log("Game Over")
                 gameOver()
-            }       
-    
+            } 
             })
 
 
@@ -113,16 +114,19 @@ export default function Game() {
     
     return (
         <TouchableWithoutFeedback onPress={jump}>
-        <View style={styles.container}>         
+        <View style={styles.container}>      
+        <Image style={{zIndex:0}} source={background}/> 
+
         {IsGameOver && <Text style={styles.titleText}>Game Over</Text>}
         {IsGameOver && <Text style={styles.scoreText}>{score}</Text>}
+     
+        
             <Player 
                 playersBottom={playersBottom}
                 playersLeft={playersLeft}
-            />  
-
+            />
+            
             <Barriers
-                color = {"black"}
                 barriersLeft={barriersLeft}
                 barrierWight={barrierWight} 
                 barrierHeight={barrierHeight}
@@ -130,17 +134,13 @@ export default function Game() {
                 gap={gap}/>
 
             <Barriers
-                color = {"blue"}
                 barriersLeft={barriersLeftTwo}
                 barrierWight={barrierWight} 
                 barrierHeight={barrierHeight}
                 randomButton={obstaclesNegHeightTwo}
-                gap={gap}/> 
-        
+                gap={gap}/>  
         </View>     
-        </TouchableWithoutFeedback> 
- 
-         
+        </TouchableWithoutFeedback>         
     )};
 
 
@@ -149,19 +149,23 @@ const styles = StyleSheet.create ({
         flex: 1,
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: "#fff"
+        backgroundColor: "white"
     },
     titleText: {
         fontSize: 42,
         fontWeight: "bold",
         textAlign: "center", 
-        color: "#ff0000" 
+        color: "#ff0000",
+        zIndex:2
+    
     },
     scoreText: {
         fontSize: 30,
         fontWeight: "bold",
         textAlign: "center", 
-        color: "black" 
+        color: "black",
+        zIndex:2
+        
     },
 
 }) 
